@@ -1,0 +1,9 @@
+PUT http://localhost:8080/events/1
+content-type: application/json
+
+{
+    "event_name": "Vogue Boyz",
+    "event_description": "Get your groove on",
+    "event_location": "Landmark Beach and Resorts",
+    "event_date": "2025-01-01T15:30:00.000Z"
+}

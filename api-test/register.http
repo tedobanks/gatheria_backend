@@ -1,0 +1,12 @@
+POST http://localhost:8080/register
+Content-Type: application/json
+
+{
+    "email": "banon.ted@gmail.com",
+    "password": "abcdefg12345",
+    "username": "tedb",
+    "firstname": "John",
+    "lastname": "Doe",
+    "is_verified": false,
+    "role": "user"
+}

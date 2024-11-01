@@ -1,0 +1,10 @@
+POST http://localhost:8080/events
+content-type: application/json
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhbm9uLnRlZEBnbWFpbC5jb20iLCJleHAiOjE3MzAyMzk0NDcsImlkIjozfQ.5oRAQzc0nqBOJFBGhKqxCrEK9M_tTN9l1xpT-Jfn67Y
+
+{
+    "event_name": "Live More, Worry Less",
+    "event_description": "PSIV's Listening party",
+    "event_location": "Proof Lounge & Hotel",
+    "event_date": "2024-01-01T15:30:00.000Z"
+}
