@@ -1,18 +1,23 @@
 package main
 
 import (
+	"net/http"
 	"example.com/rest-api/db"
 	"example.com/rest-api/routes"
 	"github.com/gin-gonic/gin"
 )
 
-func main() {
+// Handler is the entry point for Vercel's serverless function
+func Handler(w http.ResponseWriter, r *http.Request) {
+	// Initialize the database
 	db.InitDB()
-	// This initializes a server
+
+	// Initialize a Gin engine
 	engine := gin.Default()
 
+	// Register routes
 	routes.RegisterRoute(engine)
 
-	// This runs the server on this port
-	engine.Run(":8080")
+	// Serve the HTTP request
+	engine.ServeHTTP(w, r)
 }
