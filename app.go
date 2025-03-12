@@ -1,23 +1,32 @@
-package handler
+package main
 
 import (
+	"fmt"
 	"net/http"
+	"os"
+
 	"example.com/rest-api/db"
 	"example.com/rest-api/routes"
 	"github.com/gin-gonic/gin"
 )
 
-// Handler is the entry point for Vercel's serverless function
-func Handler(w http.ResponseWriter, r *http.Request) {
+func main() {
 	// Initialize the database
 	db.InitDB()
 
-	// Initialize a Gin engine
+	// Initialize Gin
 	engine := gin.Default()
 
 	// Register routes
 	routes.RegisterRoute(engine)
 
-	// Serve the HTTP request
-	engine.ServeHTTP(w, r)
+	// Get PORT from environment variable (Render provides this dynamically)
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080" // Default to 8080 if not set
+	}
+
+	// Start the server
+	fmt.Println("Server running on port:", port)
+	engine.Run(":" + port)
 }
